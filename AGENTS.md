@@ -7,3 +7,5 @@
 - 地形图像与高度场许可来自 LegacyWeb/ASSETS.md 与 THIRD_PARTY_NOTICES.md；修改生成数据应优先修改 tools/import-world.mjs 并重新生成。
 - 保留 LegacyWeb 的源代码，避免在物理迁移中无意改写。若明确修改网页版本，应遵循该目录下的原 AGENTS.md。
 - Unity Assets 与场景的 .meta 文件必须一并提交，避免引用失效。不要提交 Library、Temp、Logs、node_modules、本机存档或密钥。
+- WebGL 变更阅读 docs/WEBGL-DEPLOY.md，运行 `node --test tools/WebChecks/*.test.mjs`；发布必须使用真实 Unity 构建。公开浏览器验证必须通过 Unity 启动与刷新后的存档检查，加载页检查不能代替游戏运行验收。
+- UI 中文文案或天体名称变更后，按 docs/fonts/README.md 重新生成字体子集。

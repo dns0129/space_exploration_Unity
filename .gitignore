@@ -14,6 +14,7 @@
 node_modules/
 dist/
 dist-site/
+dist-pages/
 dist-standalone/
 test-results/
 playwright-report/

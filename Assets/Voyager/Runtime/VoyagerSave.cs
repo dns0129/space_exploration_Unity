@@ -18,20 +18,32 @@ namespace Voyager
             public double cruiseSpeedKm;
         }
         static string Filename=>Path.Combine(Application.persistentDataPath,"voyager-unity.json");
+        const string BrowserKey="voyager-unity-save-v1";
         public static void Save(ShipController ship,AstronautController astronaut)
         {
             State state=new State {systemId=ship.systemId,targetId=ship.targetId,landedId=ship.Landed?.id,
                 position=ship.Position,velocity=ship.Velocity,rotation=ship.Body.rotation,assist=ship.assist,
                 cruiseSpeedKm=ship.cruiseSpeedKm,walking=astronaut.Active};
             if(state.walking) {state.walkerPosition=astronaut.Position;state.walkerRotation=astronaut.Body.rotation;state.walkerVelocity=astronaut.Body.velocity;}
+            string json=JsonUtility.ToJson(state,true);
+#if UNITY_WEBGL && !UNITY_EDITOR
+            PlayerPrefs.SetString(BrowserKey,json);PlayerPrefs.Save();
+#else
             string temporary=Filename+".tmp";
-            File.WriteAllText(temporary,JsonUtility.ToJson(state,true));
+            File.WriteAllText(temporary,json);
             if(File.Exists(Filename)) File.Replace(temporary,Filename,Filename+".bak");else File.Move(temporary,Filename);
+#endif
         }
         public static bool Load(ShipController ship,AstronautController astronaut)
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if(!PlayerPrefs.HasKey(BrowserKey)) return false;
+            string json=PlayerPrefs.GetString(BrowserKey);
+#else
             if(!File.Exists(Filename)) return false;
-            State s=JsonUtility.FromJson<State>(File.ReadAllText(Filename));
+            string json=File.ReadAllText(Filename);
+#endif
+            State s=JsonUtility.FromJson<State>(json);
             if(s==null || s.version!=1 || double.IsNaN(s.cruiseSpeedKm) || double.IsInfinity(s.cruiseSpeedKm) || s.cruiseSpeedKm<1 || s.cruiseSpeedKm>150000) return false;
             if(s.walking)
             {

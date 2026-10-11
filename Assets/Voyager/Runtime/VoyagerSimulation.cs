@@ -15,9 +15,18 @@ namespace Voyager
         bool previousAutoSimulation;
         Vector3 previousGravity;
         bool initialized;
+        string loadingMessage="正在加载星图与地形…";
         void Awake()
         {
-            World=new WorldCatalog();
+#if UNITY_WEBGL && !UNITY_EDITOR
+            StartCoroutine(WorldCatalog.LoadBrowser(Initialize,message=> {loadingMessage=message;VoyagerBrowser.ReportMessage(message);}));
+#else
+            Initialize(new WorldCatalog());
+#endif
+        }
+        void Initialize(WorldCatalog catalog)
+        {
+            World=catalog;
             previousAutoSimulation=Physics.autoSimulation;previousGravity=Physics.gravity;
             Physics.autoSimulation=false;Physics.gravity=Vector3.zero;
             Material material=VoyagerPresentation.Material(new Color(.3f,.4f,.5f));
@@ -29,12 +38,19 @@ namespace Voyager
             Astronaut.transform.SetParent(transform,false);
             VoyagerPresentation presentation=gameObject.AddComponent<VoyagerPresentation>();presentation.Initialize(this);
             initialized=true;
+            VoyagerBrowser.ReportReady();
         }
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Escape)) {Paused=!Paused;accumulator=0;}
+            if(!initialized) return;
+            if(Input.GetKeyDown(KeyCode.Escape)) TogglePause();
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if(Input.GetKeyDown(KeyCode.K)) Save();
+            if(Input.GetKeyDown(KeyCode.O)) Load();
+#else
             if(Input.GetKeyDown(KeyCode.F5)) Save();
             if(Input.GetKeyDown(KeyCode.F9)) Load();
+#endif
             if(Paused) return;
             if(Input.GetKeyDown(KeyCode.E) && (Ship.Landed!=null || Astronaut.Active))
                 Notify(Astronaut.Toggle()?Astronaut.Active?"已离舱":"已返回飞船":"落地并回到飞船 12 米内可返舱");
@@ -50,18 +66,27 @@ namespace Voyager
             }
             if(saveClock>=20 && !Ship.Warping) {Save();saveClock=0;}
         }
-        public void Notify(string message) {Message=message;}
+        public void TogglePause() {Paused=!Paused;accumulator=0;}
+        public void Notify(string message) {Message=message;VoyagerBrowser.ReportMessage(message);}
         public void Save()
         {
+            if(!initialized) return;
             try {VoyagerSave.Save(Ship,Astronaut);Notify("航行已保存");}
             catch(Exception error) {Notify("保存失败："+error.Message);Debug.LogException(error);}
         }
         public void Load()
         {
+            if(!initialized) return;
             try {Notify(VoyagerSave.Load(Ship,Astronaut)?"已恢复航行":"存档缺失或无效");}
             catch(Exception error) {Notify("恢复失败："+error.Message);Debug.LogException(error);}
         }
         void OnApplicationFocus(bool focused) {if(!focused) {Paused=true;accumulator=0;}}
+        void OnGUI()
+        {
+            if(initialized) return;
+            GUI.skin.font=Resources.Load<Font>("VoyagerUI");
+            GUI.Box(new Rect(20,20,Mathf.Min(620,Screen.width-40),80),loadingMessage+"\n下载失败时请刷新重试。");
+        }
         void OnDestroy()
         {
             if(!initialized) return;

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="在浏览器中驾驶飞船，体验 Unity 物理重构的星际探索。">
+  <title>星际探索 · Voyager Unity</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">✦</span> VOYAGER <span>UNITY</span></a>
+    <nav aria-label="游戏工具"><button id="fullscreen" type="button">全屏航行</button><a href="https://github.com/dns0129/space_exploration_Unity">源代码 ↗</a></nav>
+  </header>
+  <main>
+    <div class="intro"><p class="eyebrow">星际探索 · UNITY WEBGL</p><h1>下一程，驶向星海。</h1><p>56 个天体，7 个航区。驾驶飞船，着陆，走上另一颗星球。</p></div>
+    <section class="player" aria-label="Unity 星际探索游戏">
+      <canvas id="unity-canvas" width="1600" height="900" tabindex="0" aria-label="游戏画面，点击后使用键盘操作"></canvas>
+      <div id="loading" class="loading" role="status" aria-live="polite">
+        <span class="orbit" aria-hidden="true">✦</span><h2 id="loading-title">准备启航</h2><p id="loading-text">正在加载 Unity 游戏…首次启动需要下载游戏资源。</p>
+        <progress id="progress" max="1" value="0" aria-label="游戏加载进度"></progress>
+        <button id="retry" hidden type="button">重新加载</button>
+      </div>
+    </section>
+    <div class="controls"><span><b>WASD</b> 推力与平移</span><span><b>J</b> 跃迁</span><span><b>L</b> 着陆 / 起飞</span><span><b>E</b> 离舱 / 返舱</span><span><b>K / O</b> 保存 / 恢复</span><span><b>Esc</b> 暂停</span></div>
+    <p class="hint">建议用桌面 Chrome、Edge 或 Firefox，并使用键盘与鼠标。点击游戏画面获取焦点；切出页面后，在游戏中点击“继续航行”。存档保存在当前浏览器，清除网站数据会删除存档。</p>
+    <p id="message" class="message" aria-live="polite"></p>
+    <div id="new-version" class="update" hidden>有新的航行版本可用。请先在游戏中保存，再刷新。<button id="refresh" type="button">刷新版本</button></div>
+  </main>
+  <footer><span>VOYAGER UNITY · <span id="revision">加载版本…</span></span><span><a href="legal/ASSETS.md">素材来源</a><a href="legal/FONT-LICENSE.txt">字体许可</a><a href="legal/THIRD_PARTY_NOTICES.md">第三方声明</a></span></footer>
+  <script>
+    window.voyagerConfig = {
+      loaderUrl: "Build/{{{ LOADER_FILENAME }}}",
+      dataUrl: "Build/{{{ DATA_FILENAME }}}",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+      codeUrl: "Build/{{{ CODE_FILENAME }}}",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Voyager", productName: "Space Exploration Unity", productVersion: "1.0"
+    };
+  </script>
+  <script src="player.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 2. 等待包和图片导入，打开 `Assets/Voyager/Scenes/Exploration.unity`，点击 **Play**。
 3. 使用左侧导航选择天体，按 **J** 跃迁；也可以选择“快速抵达目标附近”或“从目标地表出发”。后者便于直接体验着陆、离舱、不同重力下的跳跃。
 
-若要重新生成场景，使用 **Voyager → Rebuild Exploration Scene**。当前运行时面向 Unity 编辑器和 Windows、macOS、Linux 桌面版本，使用内置渲染管线与旧 Input Manager；不要在此项目中切换为仅启用新 Input System。
+若要重新生成场景，使用 **Voyager → Rebuild Exploration Scene**。使用内置渲染管线与旧 Input Manager；不要在此项目中切换为仅启用新 Input System。已准备桌面与 WebGL 平台代码，浏览器版本需要先生成真实 Unity 构建，步骤见 [安装 Unity 与 GitHub Pages 发布](docs/WEBGL-DEPLOY.md)。
 
 | 操作 | 按键 |
 | --- | --- |
@@ -22,7 +22,7 @@
 | 保存、恢复、暂停 | F5、F9、Esc |
 | 摄影、保存照片 | P、Enter |
 
-存档和照片位于 Unity 的 `Application.persistentDataPath`。每 20 秒航行时间自动保存一次；暂停和跃迁中不自动覆盖存档。Unity 存档与原网页存档使用不同格式，不自动互通。失去窗口焦点会暂停，按 Esc 继续。
+桌面存档和照片位于 Unity 的 `Application.persistentDataPath`；WebGL 存档保存在当前浏览器，照片直接下载，保存/恢复快捷键为 **K / O**。每 20 秒航行时间自动保存一次；暂停和跃迁中不自动覆盖存档。Unity 存档与原网页存档使用不同格式，不自动互通。失去窗口焦点会暂停，按 Esc 或点击“继续航行”。
 
 ## 本次重构
 
@@ -60,6 +60,6 @@ mkdir -p Builds
 Unity -batchmode -projectPath "$PWD" -executeMethod Voyager.Editor.VoyagerProjectSetup.BuildLinux -quit -logFile Builds/unity-build.log
 ```
 
-其他桌面平台使用 **File → Build Settings**，添加 `Exploration` 场景后选择平台。当前版本没有生成或部署 Unity WebGL 网站；原网页仓库及公开网站继续独立维护。
+其他桌面平台使用 **File → Build Settings**，添加 `Exploration` 场景后选择平台。WebGL 使用 **Voyager → Build WebGL for GitHub Pages**，再运行 `node tools/publish-webgl.mjs`。当前尚无真实 WebGL 构建，网站尚未上线；完整安装、首次启用 Pages 和发布步骤见 [浏览器发布说明](docs/WEBGL-DEPLOY.md)。原网页仓库及公开网站继续独立维护。
 
 图片及原代码的第三方依赖声明见 [素材说明](LegacyWeb/ASSETS.md) 和 [第三方声明](LegacyWeb/THIRD_PARTY_NOTICES.md)。历史下载 ZIP 继续保留在原仓库；此仓库复制源码与运行素材，不重复历史发行包及 Git 历史。

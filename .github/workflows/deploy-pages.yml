@@ -1,0 +1,58 @@
+name: Deploy Unity WebGL game
+
+on:
+  push:
+    branches: [gh-pages]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node tools/validate-webgl-site.mjs site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deployment
+  verify-public:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node tools/verify-public-site.mjs site/version.json
+      - run: npm ci --prefix tools/WebChecks
+      - run: npx --prefix tools/WebChecks playwright install --with-deps chromium
+      - run: node tools/WebChecks/verify-browser.mjs https://dns0129.github.io/space_exploration_Unity/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-unity-deployment-${{ github.sha }}
+          path: test-results/public/
+          if-no-files-found: error

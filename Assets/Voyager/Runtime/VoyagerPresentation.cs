@@ -18,6 +18,7 @@ namespace Voyager
         bool cockpit,photo;
         float slider=1;
         Material starMaterial;
+        Font uiFont;
         public static Material Material(Color color,float emission=0)
         {
             Material material=new Material(Resources.Load<Shader>("VoyagerLit"));material.color=color;material.SetFloat("_Emission",emission);return material;
@@ -25,6 +26,7 @@ namespace Voyager
         public void Initialize(VoyagerSimulation owner)
         {
             simulation=owner;
+            uiFont=Resources.Load<Font>("VoyagerUI");
             view=new GameObject("Flight camera").AddComponent<Camera>();view.tag="MainCamera";
             view.transform.SetParent(transform,false);
             view.nearClipPlane=.05f;view.farClipPlane=50000;view.backgroundColor=new Color(.003f,.005f,.014f);view.clearFlags=CameraClearFlags.SolidColor;
@@ -65,7 +67,7 @@ namespace Voyager
             ShipController ship=simulation.Ship;AstronautController walker=simulation.Astronaut;
             if(Input.GetKeyDown(KeyCode.C)) cockpit=!cockpit;
             if(Input.GetKeyDown(KeyCode.P)) photo=!photo;
-            if(photo && Input.GetKeyDown(KeyCode.Return)) ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(Application.persistentDataPath,"voyager-"+System.DateTime.Now.ToString("yyyyMMdd-HHmmss")+".png"));
+            if(photo && Input.GetKeyDown(KeyCode.Return)) StartCoroutine(VoyagerBrowser.CapturePhoto());
             Transform focus=walker.Active?walker.transform:ship.transform;
             Vector3 up=focus.up;
             Vector3 offset=walker.Active?(cockpit?new Vector3(0,.7f,.15f):new Vector3(0,1.4f,-4)):(cockpit?new Vector3(0,2,5):new Vector3(0,8,-35));
@@ -111,11 +113,13 @@ namespace Voyager
         void OnGUI()
         {
             if(photo) return;
+            if(uiFont!=null) GUI.skin.font=uiFont;
             ShipController ship=simulation.Ship;AstronautController walker=simulation.Astronaut;
             float scale=Mathf.Clamp(Screen.width/1400f,.65f,1.4f);GUI.matrix=Matrix4x4.Scale(new Vector3(scale,scale,1));
             GUILayout.BeginArea(new Rect(20,20,340,Screen.height/scale-40),GUI.skin.box);
             GUILayout.Label("星际探索 · VOYAGER UNITY");
             GUILayout.Label(simulation.Paused?"已暂停 · Esc 继续":walker.Active?"地表徒步":ship.Landed!=null?"已着陆":"自由航行");
+            if(GUILayout.Button(simulation.Paused?"继续航行":"暂停航行")) simulation.TogglePause();
             GUILayout.Label($"速度 {ship.Velocity.Magnitude/1000:0.000} km/s · 跃迁 {ship.WarpStatus}");
             if(ship.Nearby!=null)
             {
@@ -143,7 +147,13 @@ namespace Voyager
             GUI.enabled=!simulation.Paused;
             if(ship.Landed!=null && GUILayout.Button(walker.Active?"返回飞船":"离开飞船")) walker.Toggle();
             GUI.enabled=true;
-            GUILayout.BeginHorizontal();if(GUILayout.Button("保存 F5"))simulation.Save();if(GUILayout.Button("恢复 F9")) {simulation.Load();slider=SpeedToSlider(ship.cruiseSpeedKm);}GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if(GUILayout.Button("保存 K"))simulation.Save();if(GUILayout.Button("恢复 O")) {simulation.Load();slider=SpeedToSlider(ship.cruiseSpeedKm);}
+#else
+            if(GUILayout.Button("保存 F5"))simulation.Save();if(GUILayout.Button("恢复 F9")) {simulation.Load();slider=SpeedToSlider(ship.cruiseSpeedKm);}
+#endif
+            GUILayout.EndHorizontal();
             GUILayout.Label(simulation.Message);
             scroll=GUILayout.BeginScrollView(scroll);
             foreach(SystemData system in simulation.World.Data.systems) if(GUILayout.Button(system.name))menuSystem=system.id;
