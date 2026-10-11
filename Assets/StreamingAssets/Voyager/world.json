@@ -1,0 +1,1618 @@
+{
+  "sourceCommit": "d6fc6a9c1e2bb1229fe74538140bf9d4c485697d",
+  "systems": [
+    {
+      "id": "solar",
+      "name": "太阳系",
+      "primaryStar": "sun"
+    },
+    {
+      "id": "alpha-centauri",
+      "name": "半人马座 α · 南门二",
+      "primaryStar": "alpha-centauri-a"
+    },
+    {
+      "id": "proxima-centauri",
+      "name": "半人马座 α · 比邻星",
+      "primaryStar": "proxima-centauri"
+    },
+    {
+      "id": "betelgeuse",
+      "name": "参宿四 · 红超巨星",
+      "primaryStar": "betelgeuse"
+    },
+    {
+      "id": "echo-rift",
+      "name": "回声裂隙 · 虚构脉冲星系",
+      "primaryStar": "echo-pulsar"
+    },
+    {
+      "id": "black-hole",
+      "name": "黑洞星系 · 暗渊",
+      "primaryStar": "gargantua"
+    },
+    {
+      "id": "barnard",
+      "name": "巴纳德星 · 红矮星系",
+      "primaryStar": "barnard-star"
+    }
+  ],
+  "bodies": [
+    {
+      "id": "sun",
+      "name": "太阳",
+      "systemId": "solar",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 695700000,
+      "gravity": 274,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#ffbd68",
+      "texture": "sun-real",
+      "terrain": null
+    },
+    {
+      "id": "mercury",
+      "name": "水星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 47354460616.8723,
+        "y": -1628206788.2887409,
+        "z": 33276327957.56859
+      },
+      "radiusM": 2439700,
+      "gravity": 3.7,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#84796b",
+      "texture": "mercury-real",
+      "terrain": {
+        "file": "mercury-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0.000593411945678072,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "venus",
+      "name": "金星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -53973248610.98621,
+        "y": 4395593846.518576,
+        "z": 93673940821.94429
+      },
+      "radiusM": 6051800,
+      "gravity": 8.87,
+      "solid": true,
+      "density": 8,
+      "scaleHeightM": 16000,
+      "atmosphereM": 170000,
+      "color": "#a16c3b",
+      "texture": "venus-real",
+      "terrain": {
+        "file": "procedural-venus.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 3.095515961337143,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "earth",
+      "name": "地球",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 0.000009160227675600732,
+        "y": 0,
+        "z": 149597870700
+      },
+      "radiusM": 6371000,
+      "gravity": 9.81,
+      "solid": true,
+      "density": 1,
+      "scaleHeightM": 8500,
+      "atmosphereM": 160000,
+      "color": "#6ba9df",
+      "texture": "earth-day",
+      "terrain": {
+        "file": "earth-terrain-8k_png.bytes",
+        "width": 1024,
+        "height": 512,
+        "offsetM": 0,
+        "scaleM": 9046.82,
+        "tilt": 0.40910517666747087,
+        "yaw": -1.8,
+        "mapOffset": 0,
+        "fine": false
+      }
+    },
+    {
+      "id": "mars",
+      "name": "火星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 174491038161.01263,
+        "y": -7359517338.333478,
+        "z": -146414224397.90057
+      },
+      "radiusM": 3389499.9999999995,
+      "gravity": 3.71,
+      "solid": true,
+      "density": 0.04,
+      "scaleHeightM": 11000,
+      "atmosphereM": 95000,
+      "color": "#c37a51",
+      "texture": "mars-real",
+      "terrain": {
+        "file": "mars-real-8k_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0.4396484385773716,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "jupiter",
+      "name": "木星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -687273507882.5319,
+        "y": 16920687458.559235,
+        "z": -365495247163.0364
+      },
+      "radiusM": 69911000,
+      "gravity": 24.79,
+      "solid": false,
+      "density": 3,
+      "scaleHeightM": 180000,
+      "atmosphereM": 1960000,
+      "color": "#d2b08c",
+      "texture": "jupiter-real",
+      "terrain": null
+    },
+    {
+      "id": "saturn",
+      "name": "土星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 901034359509.3365,
+        "y": -55226118427.19219,
+        "z": 1113557097246.0576
+      },
+      "radiusM": 58232000,
+      "gravity": 10.44,
+      "solid": false,
+      "density": 2,
+      "scaleHeightM": 160000,
+      "atmosphereM": 1630000,
+      "color": "#c7b58b",
+      "texture": "saturn-real",
+      "terrain": null
+    },
+    {
+      "id": "uranus",
+      "name": "天王星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -2623912357434.4014,
+        "y": 38197981572.08064,
+        "z": 1168281260958.5347
+      },
+      "radiusM": 25362000,
+      "gravity": 8.69,
+      "solid": false,
+      "density": 2,
+      "scaleHeightM": 100000,
+      "atmosphereM": 710000,
+      "color": "#83c9cf",
+      "texture": "uranus-real",
+      "terrain": null
+    },
+    {
+      "id": "neptune",
+      "name": "海王星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 1828808703843.191,
+        "y": 42242820608.6397,
+        "z": -4106044115551.4165
+      },
+      "radiusM": 24622000,
+      "gravity": 11.15,
+      "solid": false,
+      "density": 2,
+      "scaleHeightM": 100000,
+      "atmosphereM": 690000,
+      "color": "#4879cd",
+      "texture": "neptune-real",
+      "terrain": null
+    },
+    {
+      "id": "moon",
+      "name": "月球",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "earth",
+      "positionM": {
+        "x": 314882045.8246976,
+        "y": 19216340.639901526,
+        "z": 149817514478.58176
+      },
+      "radiusM": 1737400.0000000002,
+      "gravity": 1.62,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b6b7ba",
+      "texture": "moon-real",
+      "terrain": {
+        "file": "moon-real-8k_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "io",
+      "name": "木卫一",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "jupiter",
+      "positionM": {
+        "x": -686928071465.4553,
+        "y": 16941768444.11555,
+        "z": -365254290395.534
+      },
+      "radiusM": 1821600.0000000002,
+      "gravity": 1.796,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#e4c458",
+      "texture": "io-real",
+      "terrain": {
+        "file": "io-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "europa",
+      "name": "木卫二",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "jupiter",
+      "positionM": {
+        "x": -687938878753.2408,
+        "y": 16928313867.140226,
+        "z": -365408076914.0734
+      },
+      "radiusM": 1560800,
+      "gravity": 1.315,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#e4dbbc",
+      "texture": "europa-real",
+      "terrain": {
+        "file": "europa-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "ganymede",
+      "name": "木卫三",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "jupiter",
+      "positionM": {
+        "x": -686585239072.0243,
+        "y": 16849238766.630278,
+        "z": -366311909448.7483
+      },
+      "radiusM": 2634100,
+      "gravity": 1.428,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#a69883",
+      "texture": "ganymede-real",
+      "terrain": {
+        "file": "ganymede-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "callisto",
+      "name": "木卫四",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "jupiter",
+      "positionM": {
+        "x": -687192173542.0577,
+        "y": 17084622383.614521,
+        "z": -363621462395.40515
+      },
+      "radiusM": 2410300,
+      "gravity": 1.236,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#84776a",
+      "texture": "callisto-real",
+      "terrain": {
+        "file": "callisto-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "mimas",
+      "name": "土卫一",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 901186344160.4818,
+        "y": -55178251766.90765,
+        "z": 1113652145492.598
+      },
+      "radiusM": 198200,
+      "gravity": 0.064,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#c2bdaf",
+      "texture": "mimas-real",
+      "terrain": {
+        "file": "mimas-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 2973,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "enceladus",
+      "name": "土卫二",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 900798354612.9711,
+        "y": -55212158347.28848,
+        "z": 1113584817607.3384
+      },
+      "radiusM": 252100,
+      "gravity": 0.113,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#edf2ee",
+      "texture": "enceladus-real",
+      "terrain": {
+        "file": "enceladus-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 3781.5,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "tethys",
+      "name": "土卫三",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 901223834048.6956,
+        "y": -55327625816.590836,
+        "z": 1113355535254.5605
+      },
+      "radiusM": 531100,
+      "gravity": 0.145,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#c9cac5",
+      "texture": "tethys-real",
+      "terrain": {
+        "file": "tethys-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "dione",
+      "name": "土卫四",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 901050664178.2217,
+        "y": -55056520661.41606,
+        "z": 1113893865471.7576
+      },
+      "radiusM": 561400,
+      "gravity": 0.232,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#bcbdb9",
+      "texture": "dione-real",
+      "terrain": {
+        "file": "dione-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "rhea",
+      "name": "土卫五",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 900661874361.7438,
+        "y": -55393844541.76097,
+        "z": 1113224045535.45
+      },
+      "radiusM": 763800,
+      "gravity": 0.264,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b5b4ad",
+      "texture": "rhea-real",
+      "terrain": {
+        "file": "rhea-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "titan",
+      "name": "土卫六",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 902255029053.8856,
+        "y": -55201762737.05168,
+        "z": 1113605460044.4514
+      },
+      "radiusM": 2574700,
+      "gravity": 1.35,
+      "solid": true,
+      "density": 1.5,
+      "scaleHeightM": 40000,
+      "atmosphereM": 600000,
+      "color": "#d2a14e",
+      "texture": "titan-real",
+      "terrain": {
+        "file": "titan-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "hyperion",
+      "name": "土卫七",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 899898973909.8016,
+        "y": -54798334440.17305,
+        "z": 1114406542718.5972
+      },
+      "radiusM": 135000,
+      "gravity": 0.02,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b09675",
+      "texture": "hyperion-real",
+      "terrain": {
+        "file": "hyperion-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 2025,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "iapetus",
+      "name": "土卫八",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "saturn",
+      "positionM": {
+        "x": 901502590078.0603,
+        "y": -56813820848.86476,
+        "z": 1110404415811.6072
+      },
+      "radiusM": 734500,
+      "gravity": 0.223,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b9b1a0",
+      "texture": "iapetus-real",
+      "terrain": {
+        "file": "iapetus-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "miranda",
+      "name": "天卫五",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "uranus",
+      "positionM": {
+        "x": -2623806367351.3906,
+        "y": 38271515241.33103,
+        "z": 1168271227320.6108
+      },
+      "radiusM": 235800,
+      "gravity": 0.079,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b8b9b8",
+      "texture": "miranda-real",
+      "terrain": {
+        "file": "miranda-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 3537,
+        "tilt": 1.706408409674856,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "ariel",
+      "name": "天卫一",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "uranus",
+      "positionM": {
+        "x": -2624101627735.725,
+        "y": 38222644064.96928,
+        "z": 1168277895771.8594
+      },
+      "radiusM": 578900,
+      "gravity": 0.269,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#c6c8c8",
+      "texture": "ariel-real",
+      "terrain": {
+        "file": "ariel-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 1.706408409674856,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "umbriel",
+      "name": "天卫二",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "uranus",
+      "positionM": {
+        "x": -2623741319034.1816,
+        "y": 37996131906.97321,
+        "z": 1168308803259.5708
+      },
+      "radiusM": 584700,
+      "gravity": 0.2,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#797b7e",
+      "texture": "umbriel-real",
+      "terrain": {
+        "file": "umbriel-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 1.706408409674856,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "titania",
+      "name": "天卫三",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "uranus",
+      "positionM": {
+        "x": -2623893508880.3306,
+        "y": 38629872211.67193,
+        "z": 1168222329664.277
+      },
+      "radiusM": 788900,
+      "gravity": 0.379,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b0a9a4",
+      "texture": "titania-real",
+      "terrain": {
+        "file": "titania-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 1.706408409674856,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "oberon",
+      "name": "天卫四",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "uranus",
+      "positionM": {
+        "x": -2624324723739.357,
+        "y": 37788944655.37743,
+        "z": 1168337073872.015
+      },
+      "radiusM": 761400,
+      "gravity": 0.347,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#9d9997",
+      "texture": "oberon-real",
+      "terrain": {
+        "file": "oberon-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 1.706408409674856,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "naiad",
+      "name": "海卫三",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828848209088.8308,
+        "y": 42245231499.53471,
+        "z": -4106016558942.39
+      },
+      "radiusM": 33000,
+      "gravity": 0.012,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#828993",
+      "texture": "concept-asteroid",
+      "terrain": {
+        "file": "concept-asteroid_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 495,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "thalassa",
+      "name": "海卫四",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828759056329.6301,
+        "y": 42243389663.04247,
+        "z": -4106037611229.829
+      },
+      "radiusM": 41000,
+      "gravity": 0.013,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#929ca3",
+      "texture": "concept-asteroid",
+      "terrain": {
+        "file": "concept-asteroid_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 615,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0.37,
+        "fine": true
+      }
+    },
+    {
+      "id": "despina",
+      "name": "海卫五",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828842478140.2207,
+        "y": 42239314523.07145,
+        "z": -4106084190292.8394
+      },
+      "radiusM": 75000,
+      "gravity": 0.026,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#87909c",
+      "texture": "concept-asteroid",
+      "terrain": {
+        "file": "concept-asteroid_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 1125,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0.61,
+        "fine": true
+      }
+    },
+    {
+      "id": "galatea",
+      "name": "海卫六",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828811380268.7476,
+        "y": 42248215127.36916,
+        "z": -4105982455920.191
+      },
+      "radiusM": 88000,
+      "gravity": 0.018,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#9c9fa5",
+      "texture": "concept-asteroid",
+      "terrain": {
+        "file": "concept-asteroid_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 1319.9999999999998,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0.83,
+        "fine": true
+      }
+    },
+    {
+      "id": "larissa",
+      "name": "海卫七",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828756726607.549,
+        "y": 42238285431.04659,
+        "z": -4106095952868.508
+      },
+      "radiusM": 97000,
+      "gravity": 0.03,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#93969b",
+      "texture": "concept-asteroid",
+      "terrain": {
+        "file": "concept-asteroid_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 1454.9999999999998,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0.17,
+        "fine": true
+      }
+    },
+    {
+      "id": "proteus",
+      "name": "海卫八",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828926235258.0776,
+        "y": 42243275016.347496,
+        "z": -4106038921647.55
+      },
+      "radiusM": 210000,
+      "gravity": 0.07,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#8e9196",
+      "texture": "concept-asteroid",
+      "terrain": {
+        "file": "concept-asteroid_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 3150,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0.5,
+        "fine": true
+      }
+    },
+    {
+      "id": "triton",
+      "name": "海卫一",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1828536751740.0881,
+        "y": 42262675291.6577,
+        "z": -4105817175486.066
+      },
+      "radiusM": 1353400,
+      "gravity": 0.779,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#c3bdb5",
+      "texture": "triton-real",
+      "terrain": {
+        "file": "triton-real_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "nereid",
+      "name": "海卫二",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "neptune",
+      "positionM": {
+        "x": 1829533744181.6462,
+        "y": 41766432505.38326,
+        "z": -4111489256488.051
+      },
+      "radiusM": 170000,
+      "gravity": 0.071,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#a5a7a7",
+      "texture": "concept-haumea",
+      "terrain": {
+        "file": "concept-haumea_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 2550,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "alpha-centauri-a",
+      "name": "南门二 A",
+      "systemId": "alpha-centauri",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": -1603270299866.04,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 851120000,
+      "gravity": 200,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#fff1cf",
+      "texture": "star-g",
+      "terrain": null
+    },
+    {
+      "id": "alpha-centauri-b",
+      "name": "南门二 B",
+      "systemId": "alpha-centauri",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": 1897319874513.96,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 600528000,
+      "gravity": 300,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#ffcb92",
+      "texture": "star-k",
+      "terrain": null
+    },
+    {
+      "id": "proxima-centauri",
+      "name": "比邻星",
+      "systemId": "proxima-centauri",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 107277000,
+      "gravity": 1000,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#ff805a",
+      "texture": "star-m",
+      "terrain": null
+    },
+    {
+      "id": "proxima-b",
+      "name": "比邻星 b",
+      "systemId": "proxima-centauri",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 7264472601.192,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 6700000,
+      "gravity": 10,
+      "solid": true,
+      "density": 0.6,
+      "scaleHeightM": 9000,
+      "atmosphereM": 90000,
+      "color": "#c29473",
+      "texture": "concept-makemake",
+      "terrain": {
+        "file": "concept-makemake_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "proxima-d",
+      "name": "比邻星 d",
+      "systemId": "proxima-centauri",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -2157949284.8475,
+        "y": 0,
+        "z": 3737702799.4395
+      },
+      "radiusM": 4700000,
+      "gravity": 5,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#aa8872",
+      "texture": "concept-ceres",
+      "terrain": {
+        "file": "concept-ceres_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "proxima-c",
+      "name": "比邻星 c",
+      "systemId": "proxima-centauri",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 157507394359.8633,
+        "y": 0,
+        "z": -157507394359.8633
+      },
+      "radiusM": 19000000,
+      "gravity": 12,
+      "solid": true,
+      "density": 1,
+      "scaleHeightM": 40000,
+      "atmosphereM": 500000,
+      "color": "#93bdce",
+      "texture": "concept-venuslike",
+      "terrain": {
+        "file": "concept-venuslike_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "betelgeuse",
+      "name": "参宿四",
+      "systemId": "betelgeuse",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 531514799999.99994,
+      "gravity": 0.007,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#ff9d63",
+      "texture": "betelgeuse-4k",
+      "terrain": null
+    },
+    {
+      "id": "ceres",
+      "name": "谷神星",
+      "systemId": "solar",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 254238842695.95767,
+        "y": -36630699457.408226,
+        "z": 325171714820.34406
+      },
+      "radiusM": 473000,
+      "gravity": 0.27,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#82776a",
+      "texture": "concept-ceres",
+      "terrain": {
+        "file": "procedural-ceres.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0.06981317007977318,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "earth-station",
+      "name": "远航星舰",
+      "systemId": "solar",
+      "kind": "station",
+      "parentId": "",
+      "positionM": {
+        "x": 1379027.963602482,
+        "y": 861892.4772458262,
+        "z": 149589251775.22754
+      },
+      "radiusM": 180000,
+      "gravity": 0,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#aaa79b",
+      "texture": "",
+      "terrain": null
+    },
+    {
+      "id": "echo-pulsar",
+      "name": "回声脉冲星",
+      "systemId": "echo-rift",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 18000000,
+      "gravity": 0,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#a6e9ff",
+      "texture": "",
+      "terrain": null
+    },
+    {
+      "id": "veyl",
+      "name": "维尔",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 19928898621.44078,
+        "y": 694457153.6869903,
+        "z": 13355026357.069792
+      },
+      "radiusM": 104999999.99999999,
+      "gravity": 29,
+      "solid": false,
+      "density": 2.5,
+      "scaleHeightM": 210000,
+      "atmosphereM": 2400000,
+      "color": "#76aaa3",
+      "texture": "",
+      "terrain": null
+    },
+    {
+      "id": "echo-thalassa",
+      "name": "塔拉萨",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "parentId": "veyl",
+      "positionM": {
+        "x": 19092711353.518852,
+        "y": 808044049.2164326,
+        "z": 13253100550.086275
+      },
+      "radiusM": 7400000,
+      "gravity": 8.3,
+      "solid": true,
+      "density": 0.82,
+      "scaleHeightM": 9200,
+      "atmosphereM": 125000,
+      "color": "#6ddbd6",
+      "texture": "echo-thalassa-real",
+      "terrain": {
+        "file": "echo-thalassa-procedural.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 0,
+        "scaleM": 12000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": false
+      }
+    },
+    {
+      "id": "cinder",
+      "name": "烬岩",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "parentId": "veyl",
+      "positionM": {
+        "x": 21157169450.078026,
+        "y": 77921393.49978128,
+        "z": 12441935765.765097
+      },
+      "radiusM": 6100000,
+      "gravity": 6.6,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#c89472",
+      "texture": "cinder-real",
+      "terrain": {
+        "file": "cinder-procedural.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 0,
+        "scaleM": 18000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": false
+      }
+    },
+    {
+      "id": "ruin",
+      "name": "残冕",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -29706789249.917507,
+        "y": 19511994383.260483,
+        "z": -20439881302.213993
+      },
+      "radiusM": 43000000,
+      "gravity": 0,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#bd8a98",
+      "texture": "",
+      "terrain": null
+    },
+    {
+      "id": "shard",
+      "name": "裂片",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "parentId": "ruin",
+      "positionM": {
+        "x": -29479787474.413017,
+        "y": 19526764038.08188,
+        "z": -19756761948.649582
+      },
+      "radiusM": 8900000,
+      "gravity": 0,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#8fa7b5",
+      "texture": "shard-real",
+      "terrain": null
+    },
+    {
+      "id": "gargantua",
+      "name": "暗渊黑洞",
+      "systemId": "black-hole",
+      "kind": "black-hole",
+      "parentId": "",
+      "positionM": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 29999999.999999996,
+      "gravity": 0,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#aaa79b",
+      "texture": "",
+      "terrain": null
+    },
+    {
+      "id": "barnard-star",
+      "name": "巴纳德星",
+      "systemId": "barnard",
+      "kind": "star",
+      "parentId": "",
+      "positionM": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radiusM": 128704500,
+      "gravity": 1298,
+      "solid": false,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#ffc091",
+      "texture": "barnard-star-4k",
+      "terrain": null
+    },
+    {
+      "id": "barnard-d",
+      "name": "巴纳德星 d",
+      "systemId": "barnard",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 2334164103.751162,
+        "y": 30330864.52822752,
+        "z": 1568622502.5624247
+      },
+      "radiusM": 4400000,
+      "gravity": 5.41,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b79678",
+      "texture": "barnard-d-4k",
+      "terrain": {
+        "file": "barnard-d-8k_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "barnard-b",
+      "name": "巴纳德星 b",
+      "systemId": "barnard",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -2020762780.4020693,
+        "y": 1052828438.6684711,
+        "z": 2558146922.5764394
+      },
+      "radiusM": 4650000,
+      "gravity": 5.5,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#b39b7b",
+      "texture": "barnard-b-4k",
+      "terrain": {
+        "file": "barnard-b-8k_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "barnard-c",
+      "name": "巴纳德星 c",
+      "systemId": "barnard",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": -3064597819.896531,
+        "y": -219952331.04139203,
+        "z": -2713210607.4267406
+      },
+      "radiusM": 4800000,
+      "gravity": 5.79,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#96979b",
+      "texture": "barnard-c-4k",
+      "terrain": {
+        "file": "barnard-c-8k_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    },
+    {
+      "id": "barnard-e",
+      "name": "巴纳德星 e",
+      "systemId": "barnard",
+      "kind": "planet",
+      "parentId": "",
+      "positionM": {
+        "x": 3956569556.8725367,
+        "y": -1708979567.4009278,
+        "z": -3729783565.1409726
+      },
+      "radiusM": 4050000,
+      "gravity": 4.69,
+      "solid": true,
+      "density": 0,
+      "scaleHeightM": 1000,
+      "atmosphereM": 0,
+      "color": "#c0b6aa",
+      "texture": "barnard-e-4k",
+      "terrain": {
+        "file": "barnard-e-8k_jpg.bytes",
+        "width": 512,
+        "height": 256,
+        "offsetM": 65,
+        "scaleM": 6000,
+        "tilt": 0,
+        "yaw": -0.4,
+        "mapOffset": 0,
+        "fine": true
+      }
+    }
+  ]
+}

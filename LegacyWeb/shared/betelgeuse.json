@@ -1,0 +1,17 @@
+[
+  {
+    "id": "betelgeuse",
+    "name": "参宿四",
+    "english": "BETELGEUSE",
+    "systemId": "betelgeuse",
+    "kind": "star",
+    "color": "#ff9d63",
+    "radiusKm": 531514800,
+    "temperatureK": 3600,
+    "spectralType": "M1–M2 Ia–Iab",
+    "orbitalPeriodDays": 0,
+    "description": "猎户座的红超巨星。<br>巨型对流胞在橙红光球上翻涌。<br>8K 表面艺术示意，当前仅建恒星。<br>半径与距离采用近似估计值。",
+    "tags": ["红超巨星", "8K 表面 · 艺术示意"],
+    "position": [0, 0, 0]
+  }
+]

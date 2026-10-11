@@ -1,0 +1,5 @@
+{
+  "name": "Voyager.Core",
+  "rootNamespace": "Voyager.Core",
+  "noEngineReferences": true
+}

@@ -1,0 +1,130 @@
+name: Verify black-hole system
+
+on:
+  push:
+    branches: [codex/black-hole]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: black-hole-verification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Record cloud runtime and tested revision
+        run: |
+          mkdir -p test-results
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from "node:fs";
+          import { execFileSync } from "node:child_process";
+          const runtime = {
+            node: process.version,
+            npm: execFileSync("npm", ["--version"], { encoding: "utf8" }).trim(),
+            revision: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
+            platform: process.platform,
+            architecture: process.arch,
+          };
+          if (Number(process.versions.node.split(".")[0]) !== 24) throw new Error("Node.js 24 is required");
+          writeFileSync("test-results/cloud-runtime.json", JSON.stringify(runtime, null, 2) + "\n");
+          console.log(JSON.stringify(runtime, null, 2));
+          NODE
+      - run: npm ci --no-fund --no-audit
+      - name: Install cloud Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Select the installed Chromium for all verification scripts
+        run: |
+          node --input-type=module <<'NODE'
+          import { chromium } from "@playwright/test";
+          import { appendFileSync, existsSync } from "node:fs";
+          const executable = chromium.executablePath();
+          if (!existsSync(executable)) throw new Error("Installed Chromium executable is missing");
+          appendFileSync(process.env.GITHUB_ENV, `PLAYWRIGHT_CHROMIUM_EXECUTABLE=${executable}\n`);
+          console.log(`Chromium: ${executable}`);
+          NODE
+      - name: Unit, dynamics, persistence and backend integration tests
+        run: npm run test:server
+      - name: Type check and production game build
+        run: npm run build
+      - name: Black-hole desktop and narrow-screen browser verification
+        run: npx playwright test tests/black-hole.spec.ts --reporter=line,html
+      - name: Verify the built website and project paths
+        run: npm run test:site
+      - name: Upload screenshots, browser traces and actual runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: black-hole-evidence-${{ github.sha }}
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: error
+          retention-days: 14
+
+  verify-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Record the actual offline runtime and source revision
+        run: |
+          mkdir -p test-results/offline
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from "node:fs";
+          import { execFileSync } from "node:child_process";
+          const runtime = { node: process.version, npm: execFileSync("npm", ["--version"], { encoding: "utf8" }).trim(), revision: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(), platform: process.platform, architecture: process.arch };
+          if (Number(process.versions.node.split(".")[0]) !== 24) throw new Error("Node.js 24 is required");
+          writeFileSync("test-results/offline/runtime.json", JSON.stringify(runtime, null, 2) + "\n");
+          console.log(JSON.stringify(runtime, null, 2));
+          NODE
+      - run: npm ci --no-fund --no-audit
+      - run: npx playwright install --with-deps chromium
+      - name: Select cloud Chromium
+        run: |
+          node --input-type=module <<'NODE'
+          import { chromium } from "@playwright/test";
+          import { appendFileSync, existsSync } from "node:fs";
+          const executable = chromium.executablePath();
+          if (!existsSync(executable)) throw new Error("Installed Chromium executable is missing");
+          appendFileSync(process.env.GITHUB_ENV, `PLAYWRIGHT_CHROMIUM_EXECUTABLE=${executable}\n`);
+          NODE
+      - name: Export and verify all destinations and navigation while disconnected
+        run: |
+          set -o pipefail
+          npm run test:offline 2>&1 | tee test-results/offline/verification.log
+      - name: Upload actual offline runtime and verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: black-hole-offline-evidence-${{ github.sha }}
+          path: test-results/offline/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload the verified offline package
+        uses: actions/upload-artifact@v4
+        with:
+          name: black-hole-offline-${{ github.sha }}
+          path: dist-standalone/voyager-warp.zip
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 14

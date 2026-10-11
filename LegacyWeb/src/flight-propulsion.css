@@ -1,0 +1,162 @@
+#flight-ui .flight-navigation {
+  left: 34px;
+  top: 178px;
+  width: 260px;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #0b1825de;
+  pointer-events: auto;
+}
+#flight-navigation { max-height: 140px; overflow-y: auto; scrollbar-width: thin; }
+#flight-navigation-summary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 38px;
+  cursor: pointer;
+  list-style: none;
+  background: #0b1825;
+}
+#flight-navigation-summary::-webkit-details-marker { display: none; }
+#flight-navigation-summary::after { content: "+"; font-size: 16px; color: #9ccad7; }
+#flight-navigation[open] #flight-navigation-summary::after { content: "−"; }
+#flight-navigation-summary > span { display: grid; gap: 3px; min-width: 0; }
+#flight-target-label { font-size: 9px; color: #829eac; }
+#flight-target { font-size: 16px; font-weight: 400; color: #d1e8ef; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#flight-distance-summary { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.flight-navigation-body { padding-top: 10px; }
+#flight-ui .flight-navigation-body p { margin: 0; }
+#flight-ui .flight-navigation-body #flight-distance-au { margin: 4px 0 10px; font-size: 9px; }
+.flight-navigation-actions { display: flex; gap: 6px; }
+.flight-navigation-actions button { flex: 1; min-width: 0; }
+#flight-ui .flight-navigation > #flight-land { margin-top: 8px; width: 100%; }
+#flight-ui[data-mode="walking"] .flight-navigation-body,
+#flight-ui[data-landed="true"] .flight-navigation-body { display: none; }
+.flight-mode:has(#flight-navigation:not([open])) .planet-rail,
+.flight-mode:has(#flight-navigation:not([open])) .destination-selectors { visibility: hidden; }
+#flight-ui .flight-propulsion {
+  --engine-thumb-size: 20px;
+  position: absolute;
+  left: 34px;
+  top: 392px;
+  width: 260px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #78b3c94a;
+  border-radius: 6px;
+  background: #091620e8;
+  color: #b8d7e4;
+  font-size: 11px;
+  pointer-events: auto;
+  z-index: 3;
+}
+.flight-propulsion-reading { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 20px; }
+.flight-propulsion-reading strong { font-weight: 400; color: #d6edf3; }
+.flight-propulsion-reading > span { white-space: nowrap; }
+.flight-propulsion-reading small { color: #7eabbc; font-size: 9px; }
+#flight-target-speed { font-variant-numeric: tabular-nums; font-size: 14px; color: #e4f6fa; }
+#flight-engine-slider {
+  display: block;
+  width: 100%;
+  height: 26px;
+  margin: 6px 0 4px;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  touch-action: none;
+  pointer-events: auto;
+}
+#flight-engine-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #568094 0% 20%, #628da0 20% 40%, #72a2b4 40% 60%, #80b4c4 60% 80%, #9bcbd5 80% 100%);
+}
+#flight-engine-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #568094 0% 20%, #628da0 20% 40%, #72a2b4 40% 60%, #80b4c4 60% 80%, #9bcbd5 80% 100%);
+}
+#flight-engine-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: var(--engine-thumb-size);
+  height: var(--engine-thumb-size);
+  margin-top: -8px;
+  border: 1px solid #c7eff7;
+  border-radius: 50%;
+  background: #8fbccc;
+  box-shadow: 0 0 10px #8acfe548;
+}
+#flight-engine-slider::-moz-range-thumb {
+  width: var(--engine-thumb-size);
+  height: var(--engine-thumb-size);
+  box-sizing: border-box;
+  border: 1px solid #c7eff7;
+  border-radius: 50%;
+  background: #8fbccc;
+}
+#flight-engine-slider:focus-visible { outline: 1px solid #a3dce6; outline-offset: 3px; border-radius: 3px; }
+#flight-engine-slider:disabled { opacity: .45; cursor: default; }
+#flight-propulsion[data-mode="ground"] #flight-engine-slider::-webkit-slider-runnable-track { background: #80b4c4; }
+#flight-propulsion[data-mode="ground"] #flight-engine-slider::-moz-range-track { background: #80b4c4; }
+.flight-engine-bands { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+#flight-ui .flight-engine-bands button { min-width: 0; padding: 5px 2px; font-size: 10px; line-height: 12px; }
+#flight-engine-hint { display: block; margin-top: 7px; font-size: 9px; line-height: 1.3; color: #87aabb; }
+.flight-title, .flight-instruments, .flight-marker, .flight-key-guide { text-shadow: 0 1px 3px #061019; }
+#flight-ui .flight-surface { left: auto; right: 32px; top: 212px; bottom: auto; }
+#flight-ui .walking-panel { left: auto; right: 32px; top: 178px; }
+@media (max-width: 800px) {
+  #flight-ui .flight-navigation { top: 122px; left: 20px; width: 190px; padding: 10px; }
+  #flight-navigation { max-height: 114px; }
+  #flight-navigation-summary { min-height: 30px; gap: 5px; }
+  #flight-target { font-size: 13px; }
+  #flight-target-label { font-size: 8px; }
+  #flight-distance-summary { font-size: 8px; }
+  .flight-navigation-body { padding-top: 7px; }
+  #flight-ui .flight-navigation-body #flight-distance-au { margin-bottom: 7px; font-size: 8px; }
+  #flight-ui .flight-navigation > #flight-land { margin-top: 6px; }
+  #flight-ui .flight-propulsion { left: 20px; top: 306px; width: 190px; padding: 10px; font-size: 10px; }
+  #flight-target-speed { font-size: 12px; }
+  .flight-propulsion-reading small { font-size: 8px; }
+  #flight-ui .flight-engine-bands button { font-size: 9px; padding: 5px 1px; }
+  #flight-engine-hint { font-size: 8px; margin-top: 6px; }
+  #flight-ui .flight-surface { left: auto; right: 14px; top: 146px; width: 155px; max-width: 155px; box-sizing: border-box; padding: 8px; gap: 3px; }
+  #flight-ui .flight-surface strong { font-size: 10px; }
+  #flight-ui .flight-surface b { font-size: 13px; }
+  #flight-ui .flight-surface small { font-size: 8px; line-height: 1.25; }
+  #flight-ui .walking-panel { left: auto; right: 14px; top: 146px; width: 155px; max-height: 270px; overflow-y: auto; box-sizing: border-box; padding: 10px; gap: 7px; pointer-events: auto; }
+  #flight-ui .walking-telemetry { grid-template-columns: 1fr; gap: 6px; }
+  #flight-ui .walking-telemetry > div:last-child { grid-column: auto; }
+  #flight-ui .walking-telemetry > div { gap: 3px; }
+  #flight-ui .walking-panel > strong { font-size: 12px; }
+}
+@media (max-height: 650px) and (min-width: 801px) {
+  #flight-ui .flight-navigation { top: 118px; padding: 8px; }
+  #flight-navigation { max-height: 66px; }
+  #flight-navigation-summary { min-height: 30px; }
+  #flight-ui .flight-navigation > #flight-land { margin-top: 6px; padding: 7px 10px; }
+  #flight-ui .flight-propulsion { top: 242px; }
+  #flight-ui .flight-instruments { bottom: 20px; gap: 12px; }
+  #flight-ui .flight-instruments > div { padding-top: 8px; gap: 3px; }
+  #flight-ui .flight-instruments strong { font-size: 22px; }
+  #flight-ui .flight-key-guide { display: none; }
+  #flight-ui .walking-panel { left: auto; right: 32px; top: 138px; max-height: 218px; overflow-y: auto; pointer-events: auto; }
+}
+@media (max-width: 800px) and (max-height: 700px) {
+  #flight-ui .flight-navigation { width: 180px; top: 116px; padding: 8px; }
+  #flight-navigation { max-height: 64px; }
+  #flight-navigation-summary { min-height: 26px; }
+  #flight-ui .flight-propulsion { top: 232px; width: 180px; padding: 8px; }
+  #flight-ui .flight-surface { top: 146px; width: 145px; }
+  #flight-ui .walking-panel { width: 145px; max-height: 175px; }
+}
+@media (max-width: 380px) {
+  #flight-ui .flight-navigation, #flight-ui .flight-propulsion { left: 12px; width: 176px; }
+  #flight-ui .flight-surface, #flight-ui .walking-panel { right: 8px; width: 144px; }
+}

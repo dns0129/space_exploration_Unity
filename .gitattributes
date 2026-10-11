@@ -1,0 +1,4 @@
+*.bytes binary
+*.jpg binary
+*.png binary
+LegacyWeb/** -whitespace

@@ -1,0 +1,51 @@
+import { test, expect } from "@playwright/test";
+
+test("小行星带与星舰可观测、导航、跃迁和恢复", async ({ page }, info) => {
+  test.setTimeout(180000);
+  const errors: string[] = [];
+  page.on("pageerror", error => errors.push(error.message));
+  page.on("console", message => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  await page.goto("/#planet=earth-station");
+  await expect(page.locator("#canvas-host")).toHaveAttribute("data-ready", "true");
+  await expect(page.locator("h1")).toContainText("远航星舰");
+  await expect(page.locator(".facts")).toContainText(/2,?400/);
+  await expect(page.locator(".facts")).toContainText("360");
+  await expect(page.locator(".description")).not.toContainText("暂不支持对接");
+  await page.screenshot({ path: info.outputPath("station-observation.png") });
+  await page.locator('#mode-flight').click();
+  await expect(page.locator("#loading-overlay")).toBeHidden();
+  await expect(page.locator("#flight-target")).toHaveText("远航星舰");
+  await expect(page.locator("#flight-land")).toBeEnabled();
+  await expect(page.locator("#flight-land")).toHaveText("停泊并进入星舰（L）");
+  await expect(page.locator("#flight-nearest")).toHaveText("地球");
+  await page.screenshot({ path: info.outputPath("station-flight.png") });
+  await page.locator("#flight-land").click();
+  await expect(page.locator("#canvas-host canvas")).toHaveAttribute("data-render-mode", "station");
+  await expect(page.locator("#flight-ui")).toHaveAttribute("data-exploration", "station");
+  await expect(page.locator("#canvas-host canvas")).toHaveAttribute("data-station-zone", "停泊区");
+  // Return to observation and launch the shuttle for the existing navigation tour.
+  await page.locator("#mode-observe").click();
+  await page.locator("#mode-flight").click();
+  await expect(page.locator("#loading-overlay")).toBeHidden();
+  await page.locator('button[data-body="ceres"]').click();
+  await expect(page.locator("#flight-target")).toHaveText("小行星带 · 谷神星");
+  await page.locator("#flight-jump").click();
+  await expect(page.locator("#warp-engine")).toHaveAttribute("data-phase", "ready", { timeout: 60000 });
+  await expect(page.locator("#flight-nearest")).toHaveText("小行星带 · 谷神星");
+  await expect(page.locator("#canvas-host")).toHaveAttribute("data-asteroid-belt", "true");
+  await page.locator("#flight-save").click();
+  await expect(page.locator("#flight-storage")).toHaveText(/已保存/);
+  await page.screenshot({ path: info.outputPath("asteroid-belt-flight.png") });
+  await page.locator('button[data-body="earth-station"]').click();
+  await page.locator("#flight-jump").click();
+  await expect(page.locator("#warp-engine")).toHaveAttribute("data-phase", "ready", { timeout: 60000 });
+  await expect(page.locator("#flight-nearest")).toHaveText("地球");
+  await page.locator("#flight-save").click();
+  await expect(page.locator("#flight-storage")).toHaveText(/已保存/);
+  await page.locator('button[data-body="ceres"]').click();
+  await page.locator("#flight-resume").click();
+  await expect(page.locator("#flight-target")).toHaveText("远航星舰");
+  expect(errors).toEqual([]);
+});

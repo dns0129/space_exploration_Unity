@@ -1,0 +1,1088 @@
+{
+  "version": 2,
+  "unitsKm": 6371,
+  "auKm": 149597870.7,
+  "cruiseSpeed": 1.5696123057604772,
+  "boostSpeed": 15.69612305760477,
+  "engines": [
+    {
+      "id": "maneuver",
+      "name": "机动档",
+      "accelerationKm": 100,
+      "boostAccelerationKm": 200
+    },
+    {
+      "id": "cruise",
+      "name": "巡航档",
+      "accelerationKm": 1000,
+      "boostAccelerationKm": 2000
+    },
+    {
+      "id": "transfer",
+      "name": "转移档",
+      "accelerationKm": 10000,
+      "boostAccelerationKm": 20000
+    },
+    {
+      "id": "planetary",
+      "name": "行星际档",
+      "accelerationKm": 50000,
+      "boostAccelerationKm": 100000
+    },
+    {
+      "id": "interstellar",
+      "name": "星际档",
+      "accelerationKm": 150000,
+      "boostAccelerationKm": 300000
+    }
+  ],
+  "flightSafety": {
+    "nearSurfaceMinKm": 1000,
+    "nearSurfaceRadiusFactor": 0,
+    "warpTargetMinKm": 1000,
+    "warpTargetRadiusFactor": 0
+  },
+  "warp": {
+    "chargeSeconds": 1.6,
+    "travelSeconds": 7,
+    "arrivalSeconds": 3.2,
+    "cooldownSeconds": 2
+  },
+  "bodies": [
+    {
+      "id": "sun",
+      "radius": 109.1979281117564,
+      "position": [
+        0.0,
+        0,
+        0.0
+      ],
+      "systemId": "solar",
+      "kind": "star"
+    },
+    {
+      "id": "mercury",
+      "radius": 0.3829383142363836,
+      "position": [
+        7432.814411689264,
+        -255.56534112207515,
+        5223.093385272106
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 7.00487,
+        "ascendingNodeDeg": 48.33167,
+        "longitudeDeg": 35
+      },
+      "previousPosition": [
+        7444.499036938099,
+        0,
+        5212.6943438589815
+      ]
+    },
+    {
+      "id": "venus",
+      "atmosphereKm": 170,
+      "radius": 0.9498979752001256,
+      "position": [
+        -8471.707520167354,
+        689.9378192620586,
+        14703.177024320248
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 3.39471,
+        "ascendingNodeDeg": 76.68069,
+        "longitudeDeg": 120.00000000000001
+      },
+      "previousPosition": [
+        -8491.602574164177,
+        0,
+        14707.887096135028
+      ]
+    },
+    {
+      "id": "earth",
+      "atmosphereKm": 160,
+      "radius": 1.0,
+      "position": [
+        1.43780060831906e-12,
+        0,
+        23481.065876628472
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 0,
+        "ascendingNodeDeg": 0,
+        "longitudeDeg": 90
+      }
+    },
+    {
+      "id": "mars",
+      "atmosphereKm": 95,
+      "radius": 0.5320200910375137,
+      "position": [
+        27388.328074244648,
+        -1155.158897870582,
+        -22981.356835332066
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 1.85061,
+        "ascendingNodeDeg": 49.57854,
+        "longitudeDeg": -40.00000000000002
+      },
+      "previousPosition": [
+        27402.53156283394,
+        0,
+        -22993.45412769775
+      ]
+    },
+    {
+      "id": "jupiter",
+      "atmosphereKm": 1960,
+      "radius": 10.973316590802073,
+      "position": [
+        -107875.29553955924,
+        2655.891925688155,
+        -57368.5837644069
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 1.3053,
+        "ascendingNodeDeg": 100.55615,
+        "longitudeDeg": -152
+      },
+      "previousPosition": [
+        -107905.03779625811,
+        0,
+        -57374.1263200588
+      ]
+    },
+    {
+      "id": "saturn",
+      "atmosphereKm": 1630,
+      "radius": 9.14016637890441,
+      "position": [
+        141427.46185988645,
+        -8668.35950827063,
+        174785.2923004328
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 2.48446,
+        "ascendingNodeDeg": 113.71504,
+        "longitudeDeg": 51
+      },
+      "previousPosition": [
+        141599.5574587886,
+        0,
+        174860.89087247965
+      ]
+    },
+    {
+      "id": "uranus",
+      "atmosphereKm": 710,
+      "radius": 3.980850729869722,
+      "position": [
+        -411852.512546602,
+        5995.602193074971,
+        183374.86437898834
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 0.76986,
+        "ascendingNodeDeg": 74.22988,
+        "longitudeDeg": 156
+      },
+      "previousPosition": [
+        -411891.2772058344,
+        0,
+        183385.8118404076
+      ]
+    },
+    {
+      "id": "neptune",
+      "atmosphereKm": 690,
+      "radius": 3.864699419243447,
+      "position": [
+        287052.06464341405,
+        6630.485105735317,
+        -644489.7371764898
+      ],
+      "systemId": "solar",
+      "orbit": {
+        "inclinationDeg": 1.76917,
+        "ascendingNodeDeg": 131.72169,
+        "longitudeDeg": -66.00000000000003
+      },
+      "previousPosition": [
+        286975.652847281,
+        0,
+        -644557.8695101643
+      ]
+    },
+    {
+      "id": "moon",
+      "radius": 0.27270444200282534,
+      "position": [
+        49.42427339894798,
+        3.0162204740074596,
+        23515.541434403036
+      ],
+      "parentId": "earth",
+      "systemId": "solar"
+    },
+    {
+      "id": "io",
+      "radius": 0.28592057761732853,
+      "position": [
+        -107821.07541444911,
+        2659.2008231228297,
+        -57330.7628936641
+      ],
+      "parentId": "jupiter",
+      "systemId": "solar",
+      "previousPosition": [
+        -107850.81767114798,
+        3.308897434674677,
+        -57336.305449315994
+      ]
+    },
+    {
+      "id": "europa",
+      "radius": 0.24498508868309526,
+      "position": [
+        -107979.73297021516,
+        2657.088976163903,
+        -57354.901414860055
+      ],
+      "parentId": "jupiter",
+      "systemId": "solar",
+      "previousPosition": [
+        -108009.47522691403,
+        1.1970504757481604,
+        -57360.44397051195
+      ]
+    },
+    {
+      "id": "ganymede",
+      "radius": 0.41345157746036726,
+      "position": [
+        -107767.26402009487,
+        2644.677251079937,
+        -57496.76808173729
+      ],
+      "parentId": "jupiter",
+      "systemId": "solar",
+      "previousPosition": [
+        -107797.00627679373,
+        -11.21467460821823,
+        -57502.310637389186
+      ]
+    },
+    {
+      "id": "callisto",
+      "radius": 0.37832365405744783,
+      "position": [
+        -107862.52920139032,
+        2681.623353259225,
+        -57074.472201444856
+      ],
+      "parentId": "jupiter",
+      "systemId": "solar",
+      "previousPosition": [
+        -107892.27145808919,
+        25.73142757107025,
+        -57080.01475709675
+      ]
+    },
+    {
+      "id": "mimas",
+      "radius": 0.031109715900172655,
+      "position": [
+        141451.31755775888,
+        -8660.846298368804,
+        174800.2111901739
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141623.41315666103,
+        7.513209901825917,
+        174875.80976222074
+      ]
+    },
+    {
+      "id": "enceladus",
+      "radius": 0.03956992622822163,
+      "position": [
+        141390.41824093094,
+        -8666.168316950005,
+        174789.6433224515
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141562.5138398331,
+        2.1911913206254137,
+        174865.24189449835
+      ]
+    },
+    {
+      "id": "tethys",
+      "radius": 0.08336210955893894,
+      "position": [
+        141457.20201674706,
+        -8684.292233023205,
+        174753.6548822101
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141629.2976156492,
+        -15.932724752574142,
+        174829.25345425695
+      ]
+    },
+    {
+      "id": "dione",
+      "radius": 0.08811803484539318,
+      "position": [
+        141430.0210607788,
+        -8641.739234251461,
+        174838.15185555763
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141602.11665968093,
+        26.620274019169734,
+        174913.75042760448
+      ]
+    },
+    {
+      "id": "rhea",
+      "radius": 0.11988698791398524,
+      "position": [
+        141368.996132749,
+        -8694.686005613086,
+        174733.01609409042
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141541.09173165113,
+        -26.326497342455024,
+        174808.61466613726
+      ]
+    },
+    {
+      "id": "titan",
+      "radius": 0.40412808036415004,
+      "position": [
+        141619.05965372556,
+        -8664.536609174647,
+        174792.88338478285
+      ],
+      "parentId": "saturn",
+      "atmosphereKm": 600,
+      "systemId": "solar",
+      "previousPosition": [
+        141791.1552526277,
+        3.8228990959832068,
+        174868.4819568297
+      ]
+    },
+    {
+      "id": "hyperion",
+      "radius": 0.021189766127766442,
+      "position": [
+        141249.2503390051,
+        -8601.21400724738,
+        174918.6223071099
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141421.34593790726,
+        67.14550102325163,
+        174994.22087915675
+      ]
+    },
+    {
+      "id": "iapetus",
+      "radius": 0.11528802385810705,
+      "position": [
+        141500.95590614664,
+        -8917.56723416493,
+        174290.44354286723
+      ],
+      "parentId": "saturn",
+      "systemId": "solar",
+      "previousPosition": [
+        141673.0515050488,
+        -249.20772589429993,
+        174366.04211491407
+      ]
+    },
+    {
+      "id": "miranda",
+      "radius": 0.037011458169832055,
+      "position": [
+        -411835.8762127438,
+        6007.144128289285,
+        183373.28948683263
+      ],
+      "parentId": "uranus",
+      "systemId": "solar",
+      "previousPosition": [
+        -411874.6408719762,
+        11.541935214313144,
+        183384.2369482519
+      ]
+    },
+    {
+      "id": "ariel",
+      "radius": 0.09086485638047402,
+      "position": [
+        -411882.22064600926,
+        5999.473248307844,
+        183374.33617514666
+      ],
+      "parentId": "uranus",
+      "systemId": "solar",
+      "previousPosition": [
+        -411920.98530524166,
+        3.8710552328726604,
+        183385.28363656593
+      ]
+    },
+    {
+      "id": "umbriel",
+      "radius": 0.09177523151781511,
+      "position": [
+        -411825.66614882776,
+        5963.919621248347,
+        183379.18745245185
+      ],
+      "parentId": "uranus",
+      "systemId": "solar",
+      "previousPosition": [
+        -411864.43080806016,
+        -31.68257182662413,
+        183390.13491387112
+      ]
+    },
+    {
+      "id": "titania",
+      "radius": 0.12382671480144404,
+      "position": [
+        -411849.5540543605,
+        6063.392279339495,
+        183365.61445052223
+      ],
+      "parentId": "uranus",
+      "systemId": "solar",
+      "previousPosition": [
+        -411888.3187135929,
+        67.79008626452388,
+        183376.5619119415
+      ]
+    },
+    {
+      "id": "oberon",
+      "radius": 0.11951028096060273,
+      "position": [
+        -411917.2380692759,
+        5931.399255278203,
+        183383.62484257025
+      ],
+      "parentId": "uranus",
+      "systemId": "solar",
+      "previousPosition": [
+        -411956.0027285083,
+        -64.20293779676832,
+        183394.57230398952
+      ]
+    },
+    {
+      "id": "naiad",
+      "radius": 0.005179720609009575,
+      "position": [
+        287058.2654353839,
+        6630.863522136982,
+        -644485.4118572265
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286981.85363925085,
+        0.3784164016648225,
+        -644553.544190901
+      ]
+    },
+    {
+      "id": "thalassa",
+      "radius": 0.0064354104536179565,
+      "position": [
+        287044.2719085905,
+        6630.57442521464,
+        -644488.7162501694
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286967.8601124575,
+        0.08931947932214146,
+        -644556.8485838439
+      ]
+    },
+    {
+      "id": "despina",
+      "radius": 0.011772092293203579,
+      "position": [
+        287057.3658986377,
+        6629.934786230019,
+        -644496.0273572186
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286980.95410250465,
+        -0.5503195052982723,
+        -644564.159690893
+      ]
+    },
+    {
+      "id": "galatea",
+      "radius": 0.013812588290692198,
+      "position": [
+        287052.48473846295,
+        6631.331836033459,
+        -644480.0590048957
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286976.0729423299,
+        0.8467302981412415,
+        -644548.1913385702
+      ]
+    },
+    {
+      "id": "larissa",
+      "radius": 0.015225239365876629,
+      "position": [
+        287043.9062325458,
+        6629.773258679421,
+        -644497.8736255702
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286967.49443641276,
+        -0.7118470558961266,
+        -644566.0059592447
+      ]
+    },
+    {
+      "id": "proteus",
+      "radius": 0.03296185842097002,
+      "position": [
+        287070.512518926,
+        6630.556430128316,
+        -644488.9219349474
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286994.10072279297,
+        0.0713243929983638,
+        -644557.0542686218
+      ]
+    },
+    {
+      "id": "triton",
+      "radius": 0.212431329461623,
+      "position": [
+        287009.3787066533,
+        6633.601521214519,
+        -644454.1163845654
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        286932.9669105203,
+        3.116415479201874,
+        -644522.2487182398
+      ]
+    },
+    {
+      "id": "nereid",
+      "radius": 0.026683409197928113,
+      "position": [
+        287165.8678671553,
+        6555.710642816396,
+        -645344.413198564
+      ],
+      "parentId": "neptune",
+      "systemId": "solar",
+      "previousPosition": [
+        287089.45607102226,
+        -74.77446291892062,
+        -645412.5455322384
+      ]
+    },
+    {
+      "id": "alpha-centauri-a",
+      "systemId": "alpha-centauri",
+      "kind": "star",
+      "position": [
+        -251651.27921300265,
+        0,
+        0
+      ],
+      "radius": 133.59284256788573
+    },
+    {
+      "id": "alpha-centauri-b",
+      "systemId": "alpha-centauri",
+      "kind": "star",
+      "position": [
+        297805.6623001036,
+        0,
+        0
+      ],
+      "radius": 94.25961387537278
+    },
+    {
+      "id": "proxima-centauri",
+      "systemId": "proxima-centauri",
+      "kind": "star",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "radius": 16.83832993250667
+    },
+    {
+      "id": "proxima-b",
+      "systemId": "proxima-centauri",
+      "kind": "planet",
+      "position": [
+        1140.2405589690786,
+        0,
+        0
+      ],
+      "radius": 1.0516402448595197,
+      "hostStarId": "proxima-centauri",
+      "atmosphereKm": 90
+    },
+    {
+      "id": "proxima-d",
+      "systemId": "proxima-centauri",
+      "kind": "planet",
+      "position": [
+        -338.7143752703657,
+        0,
+        586.6744309275623
+      ],
+      "radius": 0.7377177837074242,
+      "hostStarId": "proxima-centauri"
+    },
+    {
+      "id": "proxima-c",
+      "systemId": "proxima-centauri",
+      "kind": "planet",
+      "position": [
+        24722.554443550984,
+        0,
+        -24722.554443550984
+      ],
+      "radius": 2.9822633809449064,
+      "hostStarId": "proxima-centauri",
+      "atmosphereKm": 500
+    },
+    {
+      "id": "betelgeuse",
+      "systemId": "betelgeuse",
+      "kind": "star",
+      "radius": 83427.21707738188,
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ceres",
+      "kind": "planet",
+      "systemId": "solar",
+      "radius": 0.07424266206247057,
+      "position": [
+        39905.64160978774,
+        -5749.599663696158,
+        51039.35250672485
+      ],
+      "orbit": {
+        "inclinationDeg": 10.594,
+        "ascendingNodeDeg": 80.305,
+        "longitudeDeg": 51.56620156177409
+      },
+      "previousPosition": [
+        40431.09898225476,
+        0,
+        50949.5816270795
+      ]
+    },
+    {
+      "id": "earth-station",
+      "kind": "station",
+      "systemId": "solar",
+      "radius": 0.02825302150368859,
+      "position": [
+        0.21645392616582673,
+        0.13528370385274308,
+        23479.713039589944
+      ],
+      "previousPosition": [
+        0.8502275937857732,
+        0,
+        23481.70354732381
+      ]
+    },
+    {
+      "id": "echo-pulsar",
+      "systemId": "echo-rift",
+      "kind": "star",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "radius": 2.825302150368859
+    },
+    {
+      "id": "veyl",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "position": [
+        3128.064451646646,
+        109.00284942504949,
+        2096.221371381226
+      ],
+      "hostStarId": "echo-pulsar",
+      "atmosphereKm": 2400,
+      "orbit": {
+        "inclinationDeg": 12,
+        "ascendingNodeDeg": 26,
+        "longitudeDeg": 34
+      },
+      "orbitRadiusKm": 24000000,
+      "radius": 16.48092921048501
+    },
+    {
+      "id": "echo-thalassa",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "position": [
+        2996.8154690815963,
+        126.83158832466373,
+        2080.2229712896365
+      ],
+      "hostStarId": "echo-pulsar",
+      "parentId": "veyl",
+      "atmosphereKm": 125,
+      "orbit": {
+        "inclinationDeg": 16,
+        "ascendingNodeDeg": 35,
+        "longitudeDeg": 186
+      },
+      "orbitRadiusKm": 850000,
+      "radius": 1.161513106262753
+    },
+    {
+      "id": "cinder",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "position": [
+        3320.8553523902096,
+        12.230637811926115,
+        1952.90154854263
+      ],
+      "hostStarId": "echo-pulsar",
+      "parentId": "veyl",
+      "orbit": {
+        "inclinationDeg": 23,
+        "ascendingNodeDeg": 35,
+        "longitudeDeg": -38
+      },
+      "orbitRadiusKm": 1650000,
+      "radius": 0.9574635065138911
+    },
+    {
+      "id": "ruin",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "position": [
+        -4662.814197130358,
+        3062.6266493894964,
+        -3208.268922023857
+      ],
+      "hostStarId": "echo-pulsar",
+      "orbit": {
+        "inclinationDeg": 29,
+        "ascendingNodeDeg": 112,
+        "longitudeDeg": 213
+      },
+      "orbitRadiusKm": 41000000,
+      "radius": 6.749332914770052
+    },
+    {
+      "id": "shard",
+      "systemId": "echo-rift",
+      "kind": "planet",
+      "position": [
+        -4627.183719104225,
+        3064.944912585446,
+        -3101.0456676580725
+      ],
+      "hostStarId": "echo-pulsar",
+      "parentId": "ruin",
+      "orbit": {
+        "inclinationDeg": 36,
+        "ascendingNodeDeg": 70,
+        "longitudeDeg": 72
+      },
+      "orbitRadiusKm": 720000,
+      "radius": 1.3969549521268247
+    },
+    {
+      "id": "gargantua",
+      "systemId": "black-hole",
+      "kind": "black-hole",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "radius": 4.708836917281431,
+      "radiusKm": 30000
+    },
+    {
+      "id": "barnard-star",
+      "systemId": "barnard",
+      "kind": "star",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "radius": 20.201616700674933
+    },
+    {
+      "id": "barnard-d",
+      "systemId": "barnard",
+      "kind": "planet",
+      "position": [
+        366.3732700912199,
+        4.7607698207859865,
+        246.21291831147775
+      ],
+      "radius": 0.6906294145346099,
+      "hostStarId": "barnard-star",
+      "orbitRadiusKm": 2812439.96916,
+      "orbit": {
+        "inclinationDeg": 18,
+        "ascendingNodeDeg": 32,
+        "longitudeDeg": 34
+      }
+    },
+    {
+      "id": "barnard-b",
+      "systemId": "barnard",
+      "kind": "planet",
+      "position": [
+        -317.1814127141845,
+        165.2532473188622,
+        401.5298889619274
+      ],
+      "radius": 0.7298697221786219,
+      "hostStarId": "barnard-star",
+      "orbitRadiusKm": 3425791.23903,
+      "orbit": {
+        "inclinationDeg": 18,
+        "ascendingNodeDeg": 32,
+        "longitudeDeg": 128
+      }
+    },
+    {
+      "id": "barnard-c",
+      "systemId": "barnard",
+      "kind": "planet",
+      "position": [
+        -481.0230450316326,
+        -34.52398854832711,
+        -425.8688757536871
+      ],
+      "radius": 0.7534139067650291,
+      "hostStarId": "barnard-star",
+      "orbitRadiusKm": 4098981.65718,
+      "orbit": {
+        "inclinationDeg": 18,
+        "ascendingNodeDeg": 32,
+        "longitudeDeg": 222
+      }
+    },
+    {
+      "id": "barnard-e",
+      "systemId": "barnard",
+      "kind": "planet",
+      "position": [
+        621.0280265064412,
+        -268.2435359285713,
+        -585.4314181668456
+      ],
+      "radius": 0.6356929838329932,
+      "hostStarId": "barnard-star",
+      "orbitRadiusKm": 5699678.87367,
+      "orbit": {
+        "inclinationDeg": 18,
+        "ascendingNodeDeg": 32,
+        "longitudeDeg": 316
+      }
+    }
+  ],
+  "lightYearKm": 9460730472580.8,
+  "systems": [
+    {
+      "id": "solar",
+      "groupId": "solar",
+      "name": "\u592a\u9633\u7cfb",
+      "positionLy": [
+        0,
+        0,
+        0
+      ],
+      "primaryStar": "sun",
+      "backgroundFile": "milky-way-4k.jpg",
+      "backgroundIntensity": 2.5,
+      "backgroundRotation": [
+        0,
+        0,
+        0.43
+      ]
+    },
+    {
+      "id": "alpha-centauri",
+      "groupId": "alpha-centauri",
+      "name": "\u534a\u4eba\u9a6c\u5ea7 \u03b1 \u00b7 \u5357\u95e8\u4e8c",
+      "positionLy": [
+        4.37,
+        0,
+        0
+      ],
+      "primaryStar": "alpha-centauri-a",
+      "backgroundFile": "centauri-milky-way-4k.jpg",
+      "backgroundIntensity": 1.7,
+      "backgroundRotation": [
+        0,
+        0.75,
+        -0.28
+      ]
+    },
+    {
+      "id": "proxima-centauri",
+      "groupId": "alpha-centauri",
+      "name": "\u534a\u4eba\u9a6c\u5ea7 \u03b1 \u00b7 \u6bd4\u90bb\u661f",
+      "positionLy": [
+        4.242831601654726,
+        0.164,
+        0
+      ],
+      "primaryStar": "proxima-centauri",
+      "backgroundFile": "centauri-milky-way-4k.jpg",
+      "backgroundIntensity": 1.7,
+      "backgroundRotation": [
+        0,
+        1.05,
+        -0.28
+      ]
+    },
+    {
+      "id": "betelgeuse",
+      "groupId": "betelgeuse",
+      "name": "\u53c2\u5bbf\u56db \u00b7 \u7ea2\u8d85\u5de8\u661f",
+      "positionLy": [
+        11.447634246276102,
+        70.64698661903708,
+        543.3065018493826
+      ],
+      "primaryStar": "betelgeuse",
+      "backgroundFile": "milky-way-4k.jpg",
+      "backgroundIntensity": 1.5,
+      "backgroundRotation": [
+        0.18,
+        1.55,
+        0.12
+      ]
+    },
+    {
+      "id": "echo-rift",
+      "groupId": "echo-rift",
+      "name": "\u56de\u58f0\u88c2\u9699 \u00b7 \u865a\u6784\u8109\u51b2\u661f\u7cfb",
+      "positionLy": [
+        -34.2,
+        18.6,
+        72.4
+      ],
+      "primaryStar": "echo-pulsar",
+      "backgroundFile": "milky-way-4k.jpg",
+      "backgroundIntensity": 1.8,
+      "backgroundRotation": [
+        0.24,
+        2.18,
+        -0.21
+      ]
+    },
+    {
+      "id": "black-hole",
+      "groupId": "black-hole",
+      "name": "黑洞星系 · 暗渊",
+      "positionLy": [
+        -80,
+        12,
+        100
+      ],
+      "primaryStar": "gargantua",
+      "backgroundFile": "milky-way-4k.jpg",
+      "backgroundIntensity": 1.05,
+      "backgroundRotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "barnard",
+      "groupId": "barnard",
+      "name": "巴纳德星 · 红矮星系",
+      "positionLy": [
+        -0.05683076754743976,
+        0.48790450086598447,
+        -5.94262245470481
+      ],
+      "primaryStar": "barnard-star",
+      "backgroundFile": "milky-way-4k.jpg",
+      "backgroundIntensity": 1.45,
+      "backgroundRotation": [
+        0.13,
+        2.72,
+        -0.16
+      ]
+    }
+  ],
+  "layoutVersion": 3
+}

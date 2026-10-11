@@ -1,0 +1,5 @@
+{
+  "name": "Voyager.Editor",
+  "references": ["Voyager.Core", "Voyager.Runtime"],
+  "includePlatforms": ["Editor"]
+}

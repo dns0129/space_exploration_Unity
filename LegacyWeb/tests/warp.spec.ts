@@ -1,0 +1,74 @@
+import { test, expect } from "@playwright/test";
+import { PNG } from "pngjs";
+
+test("4K 银河实际渲染，真实距离与键盘跃迁、暂停、中止和存档一致", async ({ page }, info) => {
+  test.setTimeout(150000);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
+  await page.goto("/");
+  await expect(page.locator("#canvas-host")).toHaveAttribute("data-ready", "true");
+  const dimensions = await page.evaluate(async () => {
+    const image = new Image(); image.src = "/textures/milky-way-4k.jpg";
+    await image.decode(); return [image.naturalWidth, image.naturalHeight];
+  });
+  expect(dimensions).toEqual([4096, 2048]);
+  const config = await (await page.request.get("/api/world")).json();
+  const earth = config.bodies.find((b: any) => b.id === "earth");
+  expect(earth.radius * config.unitsKm).toBe(6371);
+  expect(Math.hypot(...earth.position) * config.unitsKm).toBeCloseTo(149597870.7, 1);
+  if (info.project.name === "mobile") await page.getByRole("button", { name: "观测设置" }).click();
+  await page.getByRole("combobox", { name: "渲染画质" }).selectOption("standard");
+  const capture = async () => PNG.sync.read(await page.locator("canvas").screenshot({ style: ".control-panel, .altitude, .toast, .viewport-tools, .mobile-settings { visibility:hidden!important }" }));
+  const before = await capture();
+  await page.getByRole("switch", { name: "星空", exact: true }).click();
+  const dark = await capture();
+  let changed = 0;
+  for (let i = 0; i < before.data.length; i += 4)
+    if (Math.abs(before.data[i]-dark.data[i])+Math.abs(before.data[i+1]-dark.data[i+1])+Math.abs(before.data[i+2]-dark.data[i+2]) > 60) changed++;
+  expect(changed, "背景开关必须移除实际银河像素").toBeGreaterThan(5000);
+  await page.getByRole("switch", { name: "星空", exact: true }).click();
+  await page.getByRole("button", { name: "自由航行", exact: true }).click();
+  await expect(page.locator("#canvas-host")).toHaveAttribute("data-mode", "flight");
+  await page.getByRole("combobox", { name: "航行画质" }).selectOption("standard");
+  await page.locator('button[data-body="mars"]').click();
+  await expect(page.locator("#flight-distance-unit")).toHaveText("AU");
+  await page.keyboard.press("j");
+  await expect(page.locator("#warp-engine")).toHaveAttribute("data-phase", "charging");
+  await expect(page.locator("#warp-engine")).toHaveAttribute("data-phase", "transit", { timeout: 30000 });
+  await page.getByRole("button", { name: "暂停航行", exact: true }).click();
+  await expect(page.locator("#flight-status")).toHaveText("航行已暂停");
+  const distance = await page.locator("#flight-distance").innerText();
+  const progress = await page.locator("#warp-progress").getAttribute("style");
+  await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  await expect(page.locator("#flight-distance")).toHaveText(distance);
+  await expect(page.locator("#warp-progress")).toHaveAttribute("style", progress!);
+  await page.getByRole("button", { name: "保存航行", exact: true }).click();
+  await expect(page.locator("#flight-storage")).toHaveText("已保存 · 服务端");
+  const midway = await (await page.request.get("/api/flight/save")).json();
+  expect(midway.state.version).toBe(2);
+  expect(midway.state.target).toBe("mars");
+  await page.screenshot({ path: info.outputPath("warp-transit.png") });
+  await page.getByRole("button", { name: "中止跃迁", exact: true }).click();
+  await expect(page.locator("#warp-engine")).toHaveAttribute("data-phase", "cooldown");
+  await page.getByRole("button", { name: "保存航行", exact: true }).click();
+  await expect(page.locator("#flight-storage")).toHaveText("已保存 · 服务端");
+  const interrupted = await (await page.request.get("/api/flight/save")).json();
+  expect(interrupted.state.position).toEqual(midway.state.position);
+  await page.getByRole("button", { name: "继续航行", exact: true }).click();
+  await expect(page.locator("#warp-engine")).toHaveAttribute("data-phase", "ready", { timeout: 30000 });
+  expect(errors).toEqual([]);
+});
+
+test("银河图片加载失败后重试能恢复完整模型和背景", async ({ page }) => {
+  await page.route("**/textures/milky-way-4k.jpg", (route) => route.abort());
+  await page.goto("/");
+  await expect(page.getByRole("alert")).toBeVisible();
+  await expect(page.getByRole("button", { name: "自由航行", exact: true })).toBeDisabled();
+  await page.unroute("**/textures/milky-way-4k.jpg");
+  await page.getByRole("button", { name: "重新加载" }).click();
+  await expect(page.locator("#canvas-host")).toHaveAttribute("data-ready", "true");
+  await expect(page.getByRole("alert")).toBeHidden();
+  await expect(page.locator("canvas")).toHaveCount(1);
+});

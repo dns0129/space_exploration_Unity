@@ -1,0 +1,139 @@
+[
+  {
+    "id": "alpha-centauri-a",
+    "name": "南门二 A",
+    "english": "ALPHA CENTAURI A",
+    "systemId": "alpha-centauri",
+    "kind": "star",
+    "color": "#fff1cf",
+    "radiusKm": 851120,
+    "temperatureK": 5790,
+    "spectralType": "G2 V",
+    "orbitalPeriodDays": 29187.1275,
+    "description": "半人马座 α 双星系统中的黄色主序星，与太阳相似。与南门二 B 共同绕双星质心运行，平均间距约 23.4 AU。",
+    "tags": [
+      "黄色主序星",
+      "双星系统"
+    ],
+    "position": [
+      -251651.27921300265,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "alpha-centauri-b",
+    "name": "南门二 B",
+    "english": "ALPHA CENTAURI B",
+    "systemId": "alpha-centauri",
+    "kind": "star",
+    "color": "#ffcb92",
+    "radiusKm": 600528,
+    "temperatureK": 5230,
+    "spectralType": "K1 V",
+    "orbitalPeriodDays": 29187.1275,
+    "description": "半人马座 α 双星系统中的橙色主序星。较南门二 A 更小、更冷，温暖的橙色星光照亮这片双星航区。",
+    "tags": [
+      "橙色主序星",
+      "双星伴星"
+    ],
+    "position": [
+      297805.6623001036,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "proxima-centauri",
+    "name": "比邻星",
+    "english": "PROXIMA CENTAURI",
+    "systemId": "proxima-centauri",
+    "kind": "star",
+    "color": "#ff805a",
+    "radiusKm": 107277,
+    "temperatureK": 3042,
+    "spectralType": "M5.5 V",
+    "orbitalPeriodDays": 200887500.0,
+    "description": "距离太阳约 4.246 光年的红矮星，是半人马座 α 的遥远伴星。微弱的红色星光照亮它的近轨道行星。",
+    "tags": [
+      "红矮星",
+      "最近的恒星"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "proxima-b",
+    "name": "比邻星 b",
+    "english": "PROXIMA b",
+    "systemId": "proxima-centauri",
+    "kind": "planet",
+    "color": "#c29473",
+    "radiusKm": 6700,
+    "hostStarId": "proxima-centauri",
+    "orbitRadiusKm": 7264472.601191999,
+    "orbitalPeriodDays": 11.186,
+    "description": "已确认的系外行星，位于比邻星的宜居带附近，约 11.2 天完成一次公转。半径、大气与岩石地表为探索示意，尚无实测地表影像。",
+    "tags": [
+      "已确认系外行星",
+      "宜居带附近"
+    ],
+    "position": [
+      1140.2405589690786,
+      0,
+      0
+    ],
+    "surfaceStyle": 5,
+    "atmosphereKm": 90
+  },
+  {
+    "id": "proxima-d",
+    "name": "比邻星 d",
+    "english": "PROXIMA d",
+    "systemId": "proxima-centauri",
+    "kind": "planet",
+    "color": "#aa8872",
+    "radiusKm": 4700,
+    "hostStarId": "proxima-centauri",
+    "orbitRadiusKm": 4315898.569695,
+    "orbitalPeriodDays": 5.122,
+    "description": "比邻星内侧轨道的低质量行星候选，约 5.1 天完成一次公转。游戏中的半径和干燥岩石地貌为示意模型。",
+    "tags": [
+      "行星候选",
+      "内侧岩石世界"
+    ],
+    "position": [
+      -338.7143752703657,
+      0,
+      586.6744309275623
+    ],
+    "surfaceStyle": 0
+  },
+  {
+    "id": "proxima-c",
+    "name": "比邻星 c",
+    "english": "PROXIMA c",
+    "systemId": "proxima-centauri",
+    "kind": "planet",
+    "color": "#93bdce",
+    "radiusKm": 19000,
+    "hostStarId": "proxima-centauri",
+    "orbitRadiusKm": 222751229.4723,
+    "orbitalPeriodDays": 1900,
+    "description": "比邻星远轨道上的候选行星，其存在和参数仍有不确定性。这里以寒冷蓝灰色世界呈现，半径和云层为探索示意。",
+    "tags": [
+      "行星候选",
+      "寒冷外侧世界"
+    ],
+    "position": [
+      24722.554443550984,
+      0,
+      -24722.554443550984
+    ],
+    "surfaceStyle": 6,
+    "atmosphereKm": 500
+  }
+]

@@ -1,0 +1,177 @@
+[
+  {
+    "id": "echo-pulsar",
+    "name": "回声脉冲星",
+    "english": "ECHO PULSAR",
+    "systemId": "echo-rift",
+    "kind": "star",
+    "color": "#a6e9ff",
+    "radiusKm": 18000,
+    "temperatureK": 650000,
+    "spectralType": "虚构中子星 · 0.86 s 脉冲",
+    "orbitalPeriodDays": 0,
+    "description": "回声裂隙中央的蓝白色脉冲星。<br>蓝紫等离子与白色日冕交织，倾斜磁极扫出蓝白双束。<br>灰金色尘雾环绕赤道。<br>为便于观测，视觉半径艺术放大至 18,000 km。<br>本航区、温度、距离与周期均为虚构设定。",
+    "tags": [
+      "虚构脉冲星",
+      "双极灯塔 · 艺术放大"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "surfaceSeed": 181.86
+  },
+  {
+    "id": "veyl",
+    "name": "维尔",
+    "english": "VEYL",
+    "systemId": "echo-rift",
+    "kind": "planet",
+    "color": "#76aaa3",
+    "radiusKm": 105000,
+    "hostStarId": "echo-pulsar",
+    "orbitRadiusKm": 24000000,
+    "orbitalPeriodDays": 19.85,
+    "description": "环绕回声脉冲星的巨型气态行星。<br>青金云带与乳白风暴覆盖辽阔大气。<br>塔拉萨与烬岩两颗大型岩石卫星相伴。<br>没有可降落的固体地表；全部参数为虚构。",
+    "tags": [
+      "虚构气态巨行星",
+      "双卫星世界"
+    ],
+    "position": [
+      3128.064451646646,
+      109.00284942504949,
+      2096.221371381226
+    ],
+    "orbit": {
+      "inclinationDeg": 12,
+      "ascendingNodeDeg": 26,
+      "longitudeDeg": 34
+    },
+    "surfaceStyle": 7,
+    "surfaceSeed": 248.12,
+    "atmosphereKm": 2400,
+    "atmosphereColor": "#70bcca"
+  },
+  {
+    "id": "echo-thalassa",
+    "name": "塔拉萨",
+    "english": "THALASSA",
+    "systemId": "echo-rift",
+    "kind": "planet",
+    "color": "#6ddbd6",
+    "radiusKm": 7400,
+    "hostStarId": "echo-pulsar",
+    "parentId": "veyl",
+    "orbitRadiusKm": 850000,
+    "orbitalPeriodDays": 2.9,
+    "description": "维尔内侧的大型岩石卫星。<br>深青海洋、分支水系与淡色岸线穿过裂谷大陆。<br>设定中由潮汐与地下热维持水系，非真实宜居模型。<br>可着陆与徒步；地貌、重力和大气均为虚构。",
+    "tags": [
+      "虚构水系卫星",
+      "海岸与裂谷 · 可徒步"
+    ],
+    "position": [
+      2996.8154690815963,
+      126.83158832466373,
+      2080.2229712896365
+    ],
+    "orbit": {
+      "inclinationDeg": 16,
+      "ascendingNodeDeg": 35,
+      "longitudeDeg": 186
+    },
+    "surfaceStyle": 5,
+    "surfaceSeed": 330.74,
+    "atmosphereKm": 125,
+    "atmosphereColor": "#66c9d1"
+  },
+  {
+    "id": "cinder",
+    "name": "烬岩",
+    "english": "CINDER",
+    "systemId": "echo-rift",
+    "kind": "planet",
+    "color": "#c89472",
+    "radiusKm": 6100,
+    "hostStarId": "echo-pulsar",
+    "parentId": "veyl",
+    "orbitRadiusKm": 1650000,
+    "orbitalPeriodDays": 7.85,
+    "description": "维尔外侧的大型干燥岩石卫星。<br>铜红高原、层叠地层与暗色断谷交织。<br>没有海洋，裸露地质记录潮汐应力与古老撞击。<br>可着陆与徒步；全部参数与地表为虚构。",
+    "tags": [
+      "虚构地质卫星",
+      "干燥断层 · 可徒步"
+    ],
+    "position": [
+      3320.8553523902096,
+      12.230637811926115,
+      1952.90154854263
+    ],
+    "orbit": {
+      "inclinationDeg": 23,
+      "ascendingNodeDeg": 35,
+      "longitudeDeg": -38
+    },
+    "surfaceStyle": 0,
+    "surfaceSeed": 402.61
+  },
+  {
+    "id": "ruin",
+    "name": "残冕",
+    "english": "RUIN",
+    "systemId": "echo-rift",
+    "kind": "planet",
+    "color": "#bd8a98",
+    "radiusKm": 43000,
+    "hostStarId": "echo-pulsar",
+    "orbitRadiusKm": 41000000,
+    "orbitalPeriodDays": 44.3,
+    "description": "外侧轨道上碎裂的巨型行星。<br>近圆岩壳沿主裂带与分支断层崩裂，露出红橙熔融内层。<br>同质感的曲面壳片漂浮在破裂区域。<br>标注半径是残骸主体的视觉包络。<br>结构已不完整，无法着陆；全部参数为虚构。",
+    "tags": [
+      "虚构碎裂巨型行星",
+      "破碎岩壳 · 不可着陆"
+    ],
+    "position": [
+      -4662.814197130358,
+      3062.6266493894964,
+      -3208.268922023857
+    ],
+    "orbit": {
+      "inclinationDeg": 29,
+      "ascendingNodeDeg": 112,
+      "longitudeDeg": 213
+    },
+    "surfaceStyle": 0,
+    "surfaceSeed": 519.43
+  },
+  {
+    "id": "shard",
+    "name": "裂片",
+    "english": "SHARD",
+    "systemId": "echo-rift",
+    "kind": "planet",
+    "color": "#8fa7b5",
+    "radiusKm": 8900,
+    "hostStarId": "echo-pulsar",
+    "parentId": "ruin",
+    "orbitRadiusKm": 720000,
+    "orbitalPeriodDays": 5.1,
+    "description": "残冕相伴的碎裂大型卫星。<br>灰色岩壳与不规则断层之间露出炽红裂隙。<br>残存球壳旁漂浮着大小不一的碎块。<br>标注半径是残骸主体的视觉包络。<br>结构已不完整，无法着陆；全部参数为虚构。",
+    "tags": [
+      "虚构碎裂卫星",
+      "漂浮残片 · 不可着陆"
+    ],
+    "position": [
+      -4627.183719104225,
+      3064.944912585446,
+      -3101.0456676580725
+    ],
+    "orbit": {
+      "inclinationDeg": 36,
+      "ascendingNodeDeg": 70,
+      "longitudeDeg": 72
+    },
+    "surfaceStyle": 1,
+    "surfaceSeed": 601.89
+  }
+]

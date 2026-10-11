@@ -1,0 +1,5 @@
+{
+  "name": "Voyager.Runtime",
+  "rootNamespace": "Voyager",
+  "references": ["Voyager.Core"]
+}
